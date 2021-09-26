@@ -1,0 +1,48 @@
+PODS:
+  - KeychainAccess (4.2.2)
+  - NCMB (1.2.0)
+  - Realm (10.14.0):
+    - Realm/Headers (= 10.14.0)
+  - Realm/Headers (10.14.0)
+  - RealmSwift (10.14.0):
+    - Realm (= 10.14.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+
+DEPENDENCIES:
+  - KeychainAccess (from `https://github.com/kishikawakatsumi/KeychainAccess.git`)
+  - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
+  - RealmSwift
+  - SDWebImage (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Realm
+    - RealmSwift
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  KeychainAccess:
+    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
+  NCMB:
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
+CHECKOUT OPTIONS:
+  KeychainAccess:
+    :commit: e7f7e5af7d4f6eb8b755421b4419dc0aa8cb1bf5
+    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
+  NCMB:
+    :commit: 921f40bea563633f8cbb0d02432452cd7f0334a2
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
+SPEC CHECKSUMS:
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  NCMB: 1923105236f268cb9f001be548871c7f6996821b
+  Realm: 95a120db10fa66d0f1d10bee4ce828177ae00090
+  RealmSwift: 4937e1b6f9b87bc25dc23883198807bf69e8cb76
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+
+PODFILE CHECKSUM: 2a05a619b133ade78dbc880ea1c485f1f7aa3a92
+
+COCOAPODS: 1.10.1
