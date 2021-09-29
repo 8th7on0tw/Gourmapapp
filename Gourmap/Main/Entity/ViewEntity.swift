@@ -36,7 +36,7 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
         coordinate.latitude = i.results.shop[j].lat
         coordinate.longitude = i.results.shop[j].lng
         api_version = i.results.api_version
-        results_available = i.results.results_available
+//        results_available = i.results.results_available
         results_returned = i.results.results_returned
         results_start = i.results.results_start
         shop_address = i.results.shop[j].address

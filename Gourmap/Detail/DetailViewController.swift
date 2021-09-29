@@ -17,6 +17,7 @@ class DetailViewController: UIViewController{
     
     var data = ShopPinAnnotation()
     let likelistViewModel = LikelistViewModel()
+    var likeFlag: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +26,27 @@ class DetailViewController: UIViewController{
         shopGenre.text = data.shop_genre
         let imageURL = URL(string: data.shop_logo_image)
         shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
+        if data.likeStatus == false {
+            likeFlag = false
+        } else {
+            likeFlag = true
+        }
     }
     
     @IBAction func wishButton(_ sender: Any){
     }                                                                 
     
     @IBAction func likeButton(_ sender: Any) {
-        if data.likeStatus == false{
+        if likeFlag == false{
             likelistViewModel.saveLikeShop(data: data)
             likeLabel.backgroundColor = UIColor.blue
             likeLabel.setTitleColor(UIColor.white, for: .normal)
+            likeFlag = true
         } else {
             likelistViewModel.deleteLikeShop(data: data)
             likeLabel.backgroundColor = UIColor.white
             likeLabel.setTitleColor(UIColor.blue, for: .normal)
+            likeFlag = false
         }
     }
 }
