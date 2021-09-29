@@ -24,7 +24,7 @@ class DetailViewController: UIViewController{
         self.navigationItem.hidesBackButton = false
         shopName.text = data.shop_name
         shopGenre.text = data.shop_genre
-        let imageURL = URL(string: data.shop_logo_image)
+        let imageURL = URL(string: data.photo_mobile)
         shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
         if data.likeStatus == false {
             likeFlag = false

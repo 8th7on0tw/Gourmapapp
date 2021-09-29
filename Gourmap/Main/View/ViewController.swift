@@ -156,7 +156,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     // 表示スタイルの設定
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         // .noneを設定することで、設定したサイズでポップアップされる
@@ -209,5 +209,12 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let anno = view.annotation as! ShopPinAnnotation
         self.performSegue(withIdentifier: "toDetail", sender: anno)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.data = sender as! ShopPinAnnotation
+        }
     }
 }

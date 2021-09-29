@@ -27,8 +27,25 @@ struct Shop: Codable{
     var logo_image: String
     var name: String
     var id: String
+    var photo: Photo
 }
 
 struct Genre: Codable{
     var name: String
+}
+
+struct Photo: Codable{
+    var pc :Pc
+    var mobile :Mobile
+}
+
+struct Pc: Codable{
+    var l: String
+    var m: String
+    var s: String
+}
+
+struct Mobile: Codable{
+    var l: String
+    var s: String
 }
