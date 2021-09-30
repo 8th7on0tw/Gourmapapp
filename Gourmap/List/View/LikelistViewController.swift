@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LikelistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,6 +23,10 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Likelist"
+        let realm = try! Realm()
+        let results = realm.objects(LikeShop.self)
+        print (results[0])
     }
     
 }

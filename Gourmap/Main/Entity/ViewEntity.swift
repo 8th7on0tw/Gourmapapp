@@ -39,7 +39,7 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
         coordinate.longitude = i.results.shop[j].lng
         api_version = i.results.api_version
 //        results_available = i.results.results_available
-        results_returned = i.results.results_returned
+//        results_returned = i.results.results_returned
         results_start = i.results.results_start
         shop_address = i.results.shop[j].address
         shop_genre = i.results.shop[j].genre.name

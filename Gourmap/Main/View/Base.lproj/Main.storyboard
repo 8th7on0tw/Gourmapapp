@@ -610,7 +610,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-JS-IAk">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likelistCell" rowHeight="75" id="lHg-GL-XvV" customClass="LikeTableViewCell" customModule="Gourmap" customModuleProvider="target">
@@ -664,10 +664,10 @@
                         <viewLayoutGuide key="safeArea" id="eUV-I7-TK5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eUV-I7-TK5" firstAttribute="bottom" secondItem="FU6-JS-IAk" secondAttribute="bottom" id="LGI-HC-KCc"/>
                             <constraint firstItem="FU6-JS-IAk" firstAttribute="leading" secondItem="eUV-I7-TK5" secondAttribute="leading" id="ZSy-hz-oJf"/>
                             <constraint firstItem="FU6-JS-IAk" firstAttribute="top" secondItem="eUV-I7-TK5" secondAttribute="top" id="eW1-L3-sbB"/>
                             <constraint firstItem="eUV-I7-TK5" firstAttribute="trailing" secondItem="FU6-JS-IAk" secondAttribute="trailing" id="gap-w0-FZ3"/>
+                            <constraint firstAttribute="bottom" secondItem="FU6-JS-IAk" secondAttribute="bottom" id="wZR-TI-bcF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SmI-ZN-vVn"/>
