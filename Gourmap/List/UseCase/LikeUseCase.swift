@@ -25,8 +25,10 @@ class LikeUseCase{
         let shopId = likeShop.object_id
         
         try! realm.write {
-            realm.object(ofType: LikeShop.self, forPrimaryKey: shopId).map {
-                realm.add($0,update: .modified)
+            if let likeData =  realm.object(ofType: LikeShop.self, forPrimaryKey: shopId) {
+                realm.add(likeData,update: .modified)
+            } else {
+                realm.add(likeShop,update: .modified)
             }
         }
     }
