@@ -159,7 +159,8 @@
 		45046A8826DD23F1007B5285 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				45046A8926DD240C007B5285 /* DetailViewController.swift */,
+				45E7D54A2709EB70002ED315 /* ViewModel */,
+				45E7D5492709EB64002ED315 /* View */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -415,6 +416,21 @@
 				459A220F26C2B2CB005527AF /* View */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		45E7D5492709EB64002ED315 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45046A8926DD240C007B5285 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45E7D54A2709EB70002ED315 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9B72705B8584DC105B383BF2 /* Pods */ = {

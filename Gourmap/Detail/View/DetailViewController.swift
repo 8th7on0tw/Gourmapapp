@@ -19,7 +19,7 @@ class DetailViewController: UIViewController{
     var data = ShopPinAnnotation()
     let likelistViewModel = LikelistViewModel()
     var likeFlag: Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = false
@@ -27,15 +27,21 @@ class DetailViewController: UIViewController{
         shopGenre.text = data.shop_genre
         let imageURL = URL(string: data.photo_mobile)
         shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
-        if data.likeStatus == false {
-            likeFlag = false
-        } else {
-            likeFlag = true
+        likelistViewModel.getLikeStatus(shop_id: data.object_id) {
+            if $0 == false {
+                likeFlag = false
+                likeLabel.backgroundColor = UIColor.white
+                likeLabel.setTitleColor(UIColor.blue, for: .normal)
+            } else {
+                likeFlag = true
+                likeLabel.backgroundColor = UIColor.blue
+                likeLabel.setTitleColor(UIColor.white, for: .normal)
+            }
         }
     }
     
     @IBAction func wishButton(_ sender: Any){
-    }                                                                 
+    }
     
     @IBAction func likeButton(_ sender: Any) {
         if likeFlag == false{
@@ -51,7 +57,7 @@ class DetailViewController: UIViewController{
         }
     }
     
-    @IBAction func toMainButton(_ sender: Any) {
-        performSegue(withIdentifier: "toMain", sender: nil)
-    }
+//    @IBAction func toMainButton(_ sender: Any) {
+//        performSegue(withIdentifier: "toMain", sender: nil)
+//    }
 }

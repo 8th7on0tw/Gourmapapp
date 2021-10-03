@@ -25,19 +25,22 @@ class LikeUseCase{
         let shopId = likeShop.object_id
         
         try! realm.write {
-            if let likeData =  realm.object(ofType: LikeShop.self, forPrimaryKey: shopId) {
-                realm.add(likeData,update: .modified)
-            } else {
-                realm.add(likeShop,update: .modified)
-            }
+            likeShop.likeStatus = true
+            realm.add(likeShop,update: .modified)
+//            if let likeData =  realm.object(ofType: LikeShop.self, forPrimaryKey: shopId) {
+//                likeData.likeStatus = true
+//                realm.add(likeData,update: .modified)
+//            } else {
+//                realm.add(likeShop,update: .modified)
+//            }
         }
     }
     
-    func getLikeShop()  -> Result<Void,Error> {
+    func getLikeStatus(shop_id: String)  -> Result<Bool,Error> {
         do{
             let realm = try? Realm()
-            let shops = realm?.objects(LikeShop.self)
-            return Result.success(())
+            let shop = realm?.object(ofType: LikeShop.self, forPrimaryKey: shop_id)
+            return Result.success(shop?.likeStatus ?? false)
         }catch{
             return Result.failure(error)
         }
