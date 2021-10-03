@@ -15,7 +15,7 @@ struct Results: Codable {
     var api_version: String
 //    var results_available: Int?
 //    var results_returned: String
-    var results_start: Int
+    var results_start: Int?
     var shop: [Shop]
 }
 

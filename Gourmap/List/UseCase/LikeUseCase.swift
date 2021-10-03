@@ -11,13 +11,13 @@ import RealmSwift
 class LikeUseCase{
     
     init(){
-        let config = Realm.Configuration(
-            schemaVersion: 3,
-            migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {
-                }
-            })
-        Realm.Configuration.defaultConfiguration = config
+//        let config = Realm.Configuration(
+//            schemaVersion: 3,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion < 1) {
+//                }
+//            })
+//        Realm.Configuration.defaultConfiguration = config
     }
     
     func saveLikeShop(likeShop: LikeShop){

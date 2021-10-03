@@ -7,16 +7,25 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
 class LikelistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cell = LikeTableViewCell()
+    @IBOutlet weak var likelistTableView: UITableView!
+    var results: [LikeShop] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "likelistCell", for: indexPath) as! LikeTableViewCell
+        let likeShop = results[indexPath.row]
+        cell.shopName.text = likeShop.shop_name
+        cell.shopAddress.text = likeShop.shop_address
+        cell.shopGenre.text = likeShop.shop_genre
+        let imageURL = URL(string: likeShop.shop_logo_image)
+        cell.shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
         return cell
     }
     
@@ -25,8 +34,11 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.navigationItem.title = "Likelist"
         let realm = try! Realm()
-        let results = realm.objects(LikeShop.self)
-        print (results[0])
+        let likedatas = realm.objects(LikeShop.self)
+        for i in likedatas {
+            results.append(i)
+        }
+        likelistTableView.reloadData()
     }
     
 }

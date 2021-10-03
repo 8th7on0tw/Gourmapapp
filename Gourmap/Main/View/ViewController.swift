@@ -163,6 +163,13 @@ class ViewController: UIViewController {
         return .none
     }
     
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        print("segue")
+        let testData = unwindSegue.source as! DetailViewController
+        testData.shopName
+        print(testData.shopName)
+    }
 }
 
 extension ViewController: CLLocationManagerDelegate{

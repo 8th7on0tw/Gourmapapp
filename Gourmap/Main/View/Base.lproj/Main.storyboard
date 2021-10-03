@@ -588,16 +588,30 @@
                             <constraint firstItem="uob-bw-lxS" firstAttribute="leading" secondItem="sek-EW-GqS" secondAttribute="leading" constant="20" id="yyL-HZ-gdQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rN9-2a-wgZ"/>
+                    <navigationItem key="navigationItem" id="rN9-2a-wgZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="GfZ-MG-oCl">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p7C-tQ-LKy">
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="toMainButton:" destination="XZh-zm-OxN" eventType="touchUpInside" id="Zbb-Jw-Jdh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="likeLabel" destination="evO-6B-lpI" id="Buv-t9-QrZ"/>
                         <outlet property="shopGenre" destination="uob-bw-lxS" id="6es-qd-8eQ"/>
                         <outlet property="shopImage" destination="6G2-iZ-1Wd" id="FyD-IA-peI"/>
                         <outlet property="shopName" destination="bzY-JT-iqJ" id="Pid-zy-GHt"/>
                         <outlet property="wishLabel" destination="rgx-LU-jrY" id="1PY-mz-Hxo"/>
+                        <segue destination="G8d-XH-OV1" kind="unwind" identifier="toMain" unwindAction="unwindToMain:" id="DmU-OI-1kp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y74-Yi-hkI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="G8d-XH-OV1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="913" y="124"/>
         </scene>
@@ -609,43 +623,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-JS-IAk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-JS-IAk">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likelistCell" rowHeight="75" id="lHg-GL-XvV" customClass="LikeTableViewCell" customModule="Gourmap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="likelistCell" rowHeight="150" id="lHg-GL-XvV" customClass="LikeTableViewCell" customModule="Gourmap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lHg-GL-XvV" id="rkg-7X-pcf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-fn-T56">
-                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-fn-T56">
+                                                    <rect key="frame" x="10" y="10" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="8uf-kK-XQl"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-f2-fPF">
-                                                    <rect key="frame" x="83" y="11" width="35" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-f2-fPF">
+                                                    <rect key="frame" x="150" y="42" width="264" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-yW-cND">
-                                                    <rect key="frame" x="353" y="11" width="41" height="12"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-yW-cND">
+                                                    <rect key="frame" x="354" y="10" width="50" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Gtd-hY-hml"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqe-KP-ZV2">
-                                                    <rect key="frame" x="83" y="52" width="21" height="12"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqe-KP-ZV2">
+                                                    <rect key="frame" x="160" y="83" width="224" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rqe-KP-ZV2" firstAttribute="top" secondItem="Bgc-f2-fPF" secondAttribute="bottom" constant="20" id="0jY-eg-Gav"/>
+                                                <constraint firstItem="gwp-fn-T56" firstAttribute="top" secondItem="rkg-7X-pcf" secondAttribute="top" constant="10" id="5lF-ml-DWS"/>
+                                                <constraint firstAttribute="bottom" secondItem="gwp-fn-T56" secondAttribute="bottom" constant="10" id="BLj-W6-NId"/>
+                                                <constraint firstItem="rqe-KP-ZV2" firstAttribute="leading" secondItem="gwp-fn-T56" secondAttribute="trailing" constant="20" id="Iwv-fG-pXT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rqe-KP-ZV2" secondAttribute="trailing" constant="10" id="LDb-3M-vAn"/>
+                                                <constraint firstItem="BMf-yW-cND" firstAttribute="top" secondItem="rkg-7X-pcf" secondAttribute="top" constant="10" id="NKS-ph-rez"/>
+                                                <constraint firstItem="Bgc-f2-fPF" firstAttribute="leading" secondItem="gwp-fn-T56" secondAttribute="trailing" constant="10" id="aRX-wQ-AC9"/>
+                                                <constraint firstItem="Bgc-f2-fPF" firstAttribute="trailing" secondItem="rkg-7X-pcf" secondAttribute="trailingMargin" constant="20" id="gWc-TV-tia"/>
+                                                <constraint firstAttribute="trailing" secondItem="BMf-yW-cND" secondAttribute="trailing" constant="10" id="re3-za-GtE"/>
+                                                <constraint firstItem="Bgc-f2-fPF" firstAttribute="top" secondItem="BMf-yW-cND" secondAttribute="bottom" constant="20" id="rmV-rp-20h"/>
+                                                <constraint firstItem="gwp-fn-T56" firstAttribute="leading" secondItem="rkg-7X-pcf" secondAttribute="leading" constant="10" id="yco-es-y4G"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="shopAddress" destination="rqe-KP-ZV2" id="Vi2-nA-b1a"/>
@@ -671,10 +700,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SmI-ZN-vVn"/>
+                    <connections>
+                        <outlet property="likelistTableView" destination="FU6-JS-IAk" id="F8Q-kf-Wd4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8EH-TT-2ei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="883"/>
+            <point key="canvasLocation" x="2405.7971014492755" y="882.58928571428567"/>
         </scene>
         <!--Wishlist View Controller-->
         <scene sceneID="VLT-Q3-CPz">

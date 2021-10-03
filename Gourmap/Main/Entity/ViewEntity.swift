@@ -40,7 +40,7 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
         api_version = i.results.api_version
 //        results_available = i.results.results_available
 //        results_returned = i.results.results_returned
-        results_start = i.results.results_start
+        results_start = i.results.results_start ?? 1
         shop_address = i.results.shop[j].address
         shop_genre = i.results.shop[j].genre.name
         shop_logo_image = i.results.shop[j].logo_image

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController{
     
@@ -49,5 +50,8 @@ class DetailViewController: UIViewController{
             likeFlag = false
         }
     }
+    
+    @IBAction func toMainButton(_ sender: Any) {
+        performSegue(withIdentifier: "toMain", sender: nil)
+    }
 }
-
