@@ -12,7 +12,7 @@ import SDWebImage
 class LikelistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var likelistTableView: UITableView!
-    var results: [LikeShop] = []
+    var results: [ShopList] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -34,7 +34,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.navigationItem.title = "Likelist"
         let realm = try! Realm()
-        let likedatas = realm.objects(LikeShop.self)
+        let likedatas = realm.objects(ShopList.self).filter("likeStatus == true")
         for i in likedatas {
             results.append(i)
         }

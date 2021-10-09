@@ -20,7 +20,7 @@ class ViewUseCase {
                 shopPinAnnotation.createShopData(i: i,j: j)
                 //likeStatusが取得できたら上書き
                 let shopId = i.results.shop[j].id
-                realm.object(ofType: LikeShop.self, forPrimaryKey: shopId)?.value(forKey: "likeStatus").map {
+                realm.object(ofType: ShopList.self, forPrimaryKey: shopId)?.value(forKey: "likeStatus").map {
                     shopPinAnnotation.likeStatus = $0 as! Bool
                 }
                 shopPinAnnotations.append(shopPinAnnotation)

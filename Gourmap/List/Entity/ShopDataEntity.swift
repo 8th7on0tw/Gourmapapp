@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class LikeShop: Object {
+class ShopList: Object {
     @objc dynamic var api_version: String = ""
     @objc dynamic var results_available: Int = 0
     @objc dynamic var results_returned: String = ""
