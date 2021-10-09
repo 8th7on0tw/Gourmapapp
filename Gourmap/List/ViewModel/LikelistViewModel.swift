@@ -10,7 +10,7 @@ import Foundation
 class LikelistViewModel {
     let likeUseCase = LikeUseCase()
     
-    func saveLikeShop(data: ShopPinAnnotation){
+    func saveLikeShop(data: ShopList){
         let likeEntity = ShopList()
         likeEntity.createShopDataEntity(data: data)
         likeUseCase.saveLikeShop(likeShop: likeEntity)
@@ -28,7 +28,7 @@ class LikelistViewModel {
         }
     }
     
-    func deleteLikeShop(data: ShopPinAnnotation){
+    func deleteLikeShop(data: ShopList){
         let likeEntity = ShopList()
         likeEntity.createShopDataEntity(data: data)
         likeUseCase.deleteLikeShop(likeShop: likeEntity)

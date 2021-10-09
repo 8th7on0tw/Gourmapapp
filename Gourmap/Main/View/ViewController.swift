@@ -211,14 +211,15 @@ extension ViewController: MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let anno = view.annotation as! ShopPinAnnotation
-        self.performSegue(withIdentifier: "toDetail", sender: anno)
+        let shopAnno = view.annotation as! ShopPinAnnotation
+        let shopData = viewModel.createDetailData(anno: shopAnno)
+        self.performSegue(withIdentifier: "toDetail", sender: shopData)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.data = sender as! ShopPinAnnotation
+            detailViewController.data = sender as! ShopList
         }
     }
 }

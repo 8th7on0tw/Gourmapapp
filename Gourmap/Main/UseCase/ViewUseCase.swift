@@ -28,4 +28,5 @@ class ViewUseCase {
         }
         return shopPinAnnotations
     }
+    
 }

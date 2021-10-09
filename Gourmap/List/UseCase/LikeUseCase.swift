@@ -24,8 +24,9 @@ class LikeUseCase{
         let realm = try! Realm()
         let shop_id = likeShop.object_id
         try! realm.write {
-            let shop = realm.object(ofType: ShopList.self, forPrimaryKey: shop_id)
-            likeShop.wishStatus = shop?.wishStatus ?? false
+            realm.object(ofType: ShopList.self, forPrimaryKey: shop_id).map {
+                likeShop.wishStatus = $0.wishStatus
+            }
             likeShop.likeStatus = true
             realm.add(likeShop,update: .modified)
         }

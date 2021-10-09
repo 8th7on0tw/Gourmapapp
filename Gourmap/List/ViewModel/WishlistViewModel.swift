@@ -10,7 +10,7 @@ import Foundation
 class WishlistViewModel {
     let wishUseCase = WishUseCase()
     
-    func saveWishShop(data: ShopPinAnnotation){
+    func saveWishShop(data: ShopList){
         let wishEntity = ShopList()
         wishEntity.createShopDataEntity(data: data)
         wishUseCase.saveWishShop(wishShop: wishEntity)
@@ -28,7 +28,7 @@ class WishlistViewModel {
         }
     }
     
-    func deleteWishShop(data: ShopPinAnnotation){
+    func deleteWishShop(data: ShopList){
         let wishEntity = ShopList()
         wishEntity.createShopDataEntity(data: data)
         wishUseCase.deleteWishShop(wishShop: wishEntity)

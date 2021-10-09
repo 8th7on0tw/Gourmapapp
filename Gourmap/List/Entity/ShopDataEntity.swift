@@ -18,6 +18,7 @@ class ShopList: Object {
     @objc dynamic var shop_lat: Double = 0
     @objc dynamic var shop_lng: Double = 0
     @objc dynamic var shop_logo_image: String = ""
+    @objc dynamic var shop_photo_mobile: String = ""
     @objc dynamic var shop_name: String = ""
     @objc dynamic var object_id: String = ""
     @objc dynamic var likeStatus: Bool  = false
@@ -27,7 +28,7 @@ class ShopList: Object {
         return "object_id"
     }
     
-    func createShopDataEntity(data:ShopPinAnnotation){
+    func createShopDataEntity(data:ShopList){
         api_version = data.api_version
         results_available = data.results_available
         results_returned = data.results_returned
@@ -37,6 +38,7 @@ class ShopList: Object {
         shop_lat = data.shop_lat
         shop_lng = data.shop_lng
         shop_logo_image = data.shop_logo_image
+        shop_photo_mobile = data.shop_photo_mobile
         shop_name = data.shop_name
         object_id = data.object_id
         likeStatus = data.likeStatus

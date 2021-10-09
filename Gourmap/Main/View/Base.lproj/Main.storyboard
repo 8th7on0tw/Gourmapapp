@@ -538,25 +538,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6G2-iZ-1Wd">
-                                <rect key="frame" x="20" y="206" width="374" height="300"/>
+                                <rect key="frame" x="20" y="162" width="374" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="JgL-yE-nrX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzY-JT-iqJ">
-                                <rect key="frame" x="20" y="138" width="51" height="30"/>
+                                <rect key="frame" x="20" y="94" width="51" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uob-bw-lxS">
-                                <rect key="frame" x="20" y="178" width="62" height="18"/>
+                                <rect key="frame" x="20" y="134" width="62" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evO-6B-lpI">
-                                <rect key="frame" x="363" y="516" width="31" height="24"/>
+                                <rect key="frame" x="363" y="472" width="31" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="いいね"/>
                                 <connections>
@@ -564,7 +564,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgx-LU-jrY">
-                                <rect key="frame" x="291" y="516" width="52" height="24"/>
+                                <rect key="frame" x="291" y="472" width="52" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="次行きたい"/>
                                 <connections>
@@ -690,11 +690,12 @@
                     <navigationItem key="navigationItem" id="SmI-ZN-vVn"/>
                     <connections>
                         <outlet property="likelistTableView" destination="FU6-JS-IAk" id="F8Q-kf-Wd4"/>
+                        <segue destination="XZh-zm-OxN" kind="presentation" identifier="toDetailFromLike" modalPresentationStyle="fullScreen" id="ViS-0c-ylJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8EH-TT-2ei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405.7971014492755" y="882.58928571428567"/>
+            <point key="canvasLocation" x="1729" y="124"/>
         </scene>
         <!--Wishlist View Controller-->
         <scene sceneID="VLT-Q3-CPz">
@@ -783,13 +784,17 @@
                     <navigationItem key="navigationItem" id="PW5-KX-9O7"/>
                     <connections>
                         <outlet property="wishlistTableView" destination="Jix-CE-WNf" id="4eA-GI-DyB"/>
+                        <segue destination="XZh-zm-OxN" kind="presentation" identifier="toDetailFromWish" modalPresentationStyle="fullScreen" id="sB2-Kw-a0r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hw8-91-Uze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405.7971014492755" y="1640.625"/>
+            <point key="canvasLocation" x="1729" y="883"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sB2-Kw-a0r"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ImageNorthUp" width="119" height="117"/>
         <namedColor name="AccentColor">

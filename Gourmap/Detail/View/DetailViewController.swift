@@ -16,7 +16,7 @@ class DetailViewController: UIViewController{
     @IBOutlet weak var likeLabel: UIButton!
     @IBOutlet weak var wishLabel: UIButton!
     
-    var data = ShopPinAnnotation()
+    var data = ShopList()
     let likelistViewModel = LikelistViewModel()
     var likeFlag: Bool = false
     let wishlistViewModel = WishlistViewModel()
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController{
         self.navigationItem.hidesBackButton = false
         shopName.text = data.shop_name
         shopGenre.text = data.shop_genre
-        let imageURL = URL(string: data.photo_mobile)
+        let imageURL = URL(string: data.shop_photo_mobile)
         shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
         likelistViewModel.getLikeStatus(shop_id: data.object_id) {
             if $0 == false {

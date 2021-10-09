@@ -30,8 +30,8 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
     @objc dynamic var likeStatus: Bool = false
     @objc dynamic var title: String? = ""
     @objc dynamic var subtitle: String? = ""
-    @objc dynamic var photo_pc: String = "error"
-    @objc dynamic var photo_mobile: String = "error"
+    @objc dynamic var shop_photo_pc: String = "error"
+    @objc dynamic var shop_photo_mobile: String = "error"
     
     func createShopData(i: Hotpepper,j: Int){
         
@@ -48,8 +48,8 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
         title = i.results.shop[j].name
         subtitle = i.results.shop[j].address
         object_id = i.results.shop[j].id
-        photo_pc = i.results.shop[j].photo.pc.m
-        photo_mobile = i.results.shop[j].photo.mobile.l
+        shop_photo_pc = i.results.shop[j].photo.pc.m
+        shop_photo_mobile = i.results.shop[j].photo.mobile.l
         likeStatus = false
     }
 }

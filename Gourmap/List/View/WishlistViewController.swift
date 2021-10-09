@@ -29,7 +29,6 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Wishlist"
@@ -39,6 +38,18 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
             results.append(i)
         }
         wishlistTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "toDetailFromWish", sender: results[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailFromWish" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.data = sender as! ShopList
+        }
     }
     
 }
