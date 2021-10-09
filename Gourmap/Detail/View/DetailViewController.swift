@@ -19,6 +19,8 @@ class DetailViewController: UIViewController{
     var data = ShopPinAnnotation()
     let likelistViewModel = LikelistViewModel()
     var likeFlag: Bool = false
+    let wishlistViewModel = WishlistViewModel()
+    var wishFlag: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +40,17 @@ class DetailViewController: UIViewController{
                 likeLabel.setTitleColor(UIColor.white, for: .normal)
             }
         }
-    }
-    
-    @IBAction func wishButton(_ sender: Any){
+        wishlistViewModel.getWishStatus(shop_id: data.object_id) {
+            if $0 == false {
+                wishFlag = false
+                wishLabel.backgroundColor = UIColor.white
+                wishLabel.setTitleColor(UIColor.blue, for: .normal)
+            } else {
+                wishFlag = true
+                wishLabel.backgroundColor = UIColor.blue
+                wishLabel.setTitleColor(UIColor.white, for: .normal)
+            }
+        }
     }
     
     @IBAction func likeButton(_ sender: Any) {
@@ -57,7 +67,17 @@ class DetailViewController: UIViewController{
         }
     }
     
-//    @IBAction func toMainButton(_ sender: Any) {
-//        performSegue(withIdentifier: "toMain", sender: nil)
-//    }
+    @IBAction func wishButton(_ sender: Any){
+        if wishFlag == false{
+            wishlistViewModel.saveWishShop(data: data)
+            wishLabel.backgroundColor = UIColor.blue
+            wishLabel.setTitleColor(UIColor.white, for: .normal)
+            wishFlag = true
+        } else {
+            wishlistViewModel.deleteWishShop(data: data)
+            wishLabel.backgroundColor = UIColor.white
+            wishLabel.setTitleColor(UIColor.blue, for: .normal)
+            wishFlag = false
+        }
+    }
 }

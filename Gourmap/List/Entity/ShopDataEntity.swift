@@ -20,15 +20,14 @@ class ShopList: Object {
     @objc dynamic var shop_logo_image: String = ""
     @objc dynamic var shop_name: String = ""
     @objc dynamic var object_id: String = ""
-    
-    @objc dynamic var wishStatus: Bool  = false
     @objc dynamic var likeStatus: Bool  = false
-    
+    @objc dynamic var wishStatus: Bool  = false
+
     override static func primaryKey() -> String? {
         return "object_id"
     }
     
-    func createLikeEntity(data:ShopPinAnnotation){
+    func createShopDataEntity(data:ShopPinAnnotation){
         api_version = data.api_version
         results_available = data.results_available
         results_returned = data.results_returned
@@ -40,8 +39,7 @@ class ShopList: Object {
         shop_logo_image = data.shop_logo_image
         shop_name = data.shop_name
         object_id = data.object_id
-        
-        wishStatus = data.wishStatus
         likeStatus = data.likeStatus
+        wishStatus = data.wishStatus
     }
 }
