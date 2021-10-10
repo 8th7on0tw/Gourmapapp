@@ -49,7 +49,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailFromLike" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.data = sender as! ShopList
+            detailViewController.getData = sender as! ShopList
         }
     }
     

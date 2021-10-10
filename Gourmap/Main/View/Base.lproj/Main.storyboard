@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IV5-NF-kwY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -601,7 +602,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y74-Yi-hkI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="G8d-XH-OV1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="913" y="124"/>
+            <point key="canvasLocation" x="912" y="124"/>
         </scene>
         <!--Likelist View Controller-->
         <scene sceneID="MHN-G8-Lzq">
@@ -793,7 +794,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sB2-Kw-a0r"/>
+        <segue reference="ViS-0c-ylJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ImageNorthUp" width="119" height="117"/>

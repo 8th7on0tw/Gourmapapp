@@ -16,7 +16,7 @@ class DetailViewController: UIViewController{
     @IBOutlet weak var likeLabel: UIButton!
     @IBOutlet weak var wishLabel: UIButton!
     
-    var data = ShopList()
+    var getData = ShopList()
     let likelistViewModel = LikelistViewModel()
     var likeFlag: Bool = false
     let wishlistViewModel = WishlistViewModel()
@@ -24,6 +24,7 @@ class DetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let data = getData
         self.navigationItem.hidesBackButton = false
         shopName.text = data.shop_name
         shopGenre.text = data.shop_genre
@@ -54,6 +55,7 @@ class DetailViewController: UIViewController{
     }
     
     @IBAction func likeButton(_ sender: Any) {
+        let data = getData
         if likeFlag == false{
             likelistViewModel.saveLikeShop(data: data)
             likeLabel.backgroundColor = UIColor.blue
@@ -68,6 +70,7 @@ class DetailViewController: UIViewController{
     }
     
     @IBAction func wishButton(_ sender: Any){
+        let data = getData
         if wishFlag == false{
             wishlistViewModel.saveWishShop(data: data)
             wishLabel.backgroundColor = UIColor.blue

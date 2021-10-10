@@ -32,12 +32,12 @@ class HotpepperModelImpl: HotpepperModel{
                     let store = try JSONDecoder().decode(Hotpepper.self, from: data)
                     let object = try JSONSerialization.jsonObject(with: data, options: [])
                     self.stores.append(store)
-        
-                    self.list = self.list + store.results.shop
-                    if store.results.shop.count < self.max {
+                    guard let shop = store.results.shop else { return }
+                    self.list = self.list + shop
+                    if shop.count < self.max {
                         flag = true
                     }
-                    start = store.results.shop.count * i + 1
+                    start = shop.count * i + 1
                     self.semaphore.signal()
                 } catch let error {
                     print(error)

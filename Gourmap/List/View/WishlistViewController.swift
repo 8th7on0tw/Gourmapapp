@@ -48,7 +48,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailFromWish" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.data = sender as! ShopList
+            detailViewController.getData = sender as! ShopList
         }
     }
     

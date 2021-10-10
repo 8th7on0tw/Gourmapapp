@@ -16,7 +16,7 @@ struct Results: Codable {
 //    var results_available: Int?
 //    var results_returned: String
     var results_start: Int?
-    var shop: [Shop]
+    var shop: [Shop]?
 }
 
 struct Shop: Codable{
