@@ -1,14 +1,14 @@
 //
-//  LikeUseCase.swift
+//  WishUseCase.swift
 //  Gourmap
 //
-//  Created by hiro on 2021/09/05.
+//  Created by hiro on 2021/10/09.
 //
 
 import Foundation
 import RealmSwift
 
-class LikeUseCase{
+class WishUseCase{
     
     init(){
         //        let config = Realm.Configuration(
@@ -20,35 +20,36 @@ class LikeUseCase{
         //        Realm.Configuration.defaultConfiguration = config
     }
     
-    func saveLikeShop(likeShop: ShopList){
+    func saveWishShop(wishShop: ShopList){
         let realm = try! Realm()
-        let shop_id = likeShop.object_id
+        let shop_id = wishShop.object_id
+        
         try! realm.write {
             realm.object(ofType: ShopList.self, forPrimaryKey: shop_id).map {
-                likeShop.wishStatus = $0.wishStatus
+                wishShop.likeStatus = $0.likeStatus
             }
-            likeShop.likeStatus = true
-            realm.add(likeShop,update: .modified)
+            wishShop.wishStatus = true
+            realm.add(wishShop,update: .modified)
         }
     }
     
-    func getLikeStatus(shop_id: String)  -> Result<Bool,Error> {
+    func getWishStatus(shop_id: String)  -> Result<Bool,Error> {
         do{
             let realm = try? Realm()
             let shop = realm?.object(ofType: ShopList.self, forPrimaryKey: shop_id)
-            return Result.success(shop?.likeStatus ?? false)
+            return Result.success(shop?.wishStatus ?? false)
         }catch{
             return Result.failure(error)
         }
     }
     
-    func deleteLikeShop(likeShop: ShopList){
+    func deleteWishShop(wishShop: ShopList){
         let realm = try! Realm()
-        let shopId = likeShop.object_id
+        let shopId = wishShop.object_id
         try! realm.write {
             //高階関数　値が取得できた場合のみ処理をする
             realm.object(ofType: ShopList.self, forPrimaryKey: shopId).map {
-                $0.likeStatus = false
+                $0.wishStatus = false
                 realm.add($0, update: .modified)
             }
         }

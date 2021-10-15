@@ -8,12 +8,18 @@
 import UIKit
 import NCMB
 
-class ResetViewController: UIViewController {
+class ResetViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mailAddress: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mailAddress.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func send(_ sender: Any) {

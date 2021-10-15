@@ -39,9 +39,21 @@ class ViewController: UIViewController {
         //        searchPickerView.dataSource = self
         //        searchPickerView.delegate = self
         
+        viewModel.initialRealmData()
         self.navigationItem.hidesBackButton = true
         mapView.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
         setupLocationManager()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var region:MKCoordinateRegion = mapView.region
+        region.span.latitudeDelta = 0.01
+        region.span.longitudeDelta = 0.01
+        mapView.setRegion(region,animated:true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.startSearchShop(trackingButton as Any)
     }
     
     //検索窓関係
@@ -96,72 +108,17 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    //いらないかも
-    @IBAction func trackingBtnThouchDown(_ sender: AnyObject) {
-        switch mapView.userTrackingMode {
-        case .follow:
-            mapView.userTrackingMode = .followWithHeading
-            trackingButton.setImage(ImageHeadingUp, for: .normal)
-            break
-        case .followWithHeading:
-            mapView.userTrackingMode = .none
-            trackingButton.setImage(ImageScrollMode, for: .normal)
-            break
-        default:
-            mapView.userTrackingMode = .follow
-            trackingButton.setImage(ImageNorthUp, for: .normal)
-            break
-        }
-    }
-    
-    //いらないかも
-    @IBAction func modeChange(_ sender: Any) {
-        if mapView.mapType == MKMapType.standard {
-            mapView.mapType = MKMapType.satellite
-            modeButton.setTitle("航空", for: .normal)
-        } else {
-            mapView.mapType = MKMapType.standard
-            modeButton.setTitle("標準", for: .normal)
-        }
-        
-    }
-    
-    //シミュレータ用
-    @IBAction func clickZoomIN(_ sender: Any) {
-        DispatchQueue.main.async {
-            if (0.005 < self.mapView.region.span.latitudeDelta / self.scaleRatio) {
-                print("lat縮小前：" + self.mapView.region.span.latitudeDelta.description)
-                var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
-                self.mapView.userTrackingMode = .none
-                regionSpan.latitudeDelta = self.mapView.region.span.latitudeDelta / self.scaleRatio
-                self.mapView.region.span = regionSpan
-                self.trackingButton.setImage(self.ImageScrollMode, for: .normal)
-                print("lat縮小後：" + self.mapView.region.span.latitudeDelta.description)
-            }
-        }
-    }
-    
-    //シミュレータ用
-    @IBAction func clickZoomOut(_ sender: Any) {
-        DispatchQueue.main.async {
-            if (self.mapView.region.span.latitudeDelta * self.scaleRatio < 150.0) {
-                print("lat拡大前：" + self.mapView.region.span.latitudeDelta.description)
-                var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
-                self.mapView.userTrackingMode = .none
-                regionSpan.latitudeDelta = self.mapView.region.span.latitudeDelta * self.scaleRatio
-                self.mapView.region.span = regionSpan
-                self.trackingButton.setImage(self.ImageScrollMode, for: .normal)
-                print("lat拡大後：" + self.mapView.region.span.latitudeDelta.description)
-            }
-        }
-    }
-
+       
     // 表示スタイルの設定
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         // .noneを設定することで、設定したサイズでポップアップされる
         return .none
     }
+    
+    //    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+    //        _ = unwindSegue.source
+    //        let detailViewController = unwindSegue.source as! DetailViewController
+    //    }
     
 }
 
@@ -191,14 +148,13 @@ extension ViewController: MKMapViewDelegate{
         if annotation is ShopPinAnnotation{
             let pinAnnotation = annotation as! ShopPinAnnotation
             let imageURL = URL(string: pinAnnotation.shop_logo_image)
-            var testview = UINib(nibName: "View", bundle: .main)
-            var prview = testview.instantiate(withOwner: self).first as! CustomView
+            let testview = UINib(nibName: "View", bundle: .main)
+            let prview = testview.instantiate(withOwner: self).first as! CustomView
             prview.customView.sd_setImage(with: imageURL, placeholderImage: nil)
             
             let reuseId = "custom"
             
             pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as! MKPinAnnotationView
-            
             pinView.canShowCallout = true
             pinView.detailCalloutAccessoryView = prview
             pinView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
@@ -207,7 +163,16 @@ extension ViewController: MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let anno = view.annotation as! ShopPinAnnotation
-        self.performSegue(withIdentifier: "toDetail", sender: anno)
+        let shopAnno = view.annotation as! ShopPinAnnotation
+        let shopData = viewModel.createDetailData(anno: shopAnno)
+        viewModel.registerRealmData(shop_data: shopAnno)
+        self.performSegue(withIdentifier: "toDetail", sender: shopData.object_id)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.shop_id = sender as! String
+        }
     }
 }
