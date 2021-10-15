@@ -7,13 +7,19 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var mailAddress: UITextField!
     let signupViewModel = SignupViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mailAddress.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func send(_ sender: Any) {

@@ -108,67 +108,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    //いらないかも
-    @IBAction func trackingBtnThouchDown(_ sender: AnyObject) {
-        switch mapView.userTrackingMode {
-        case .follow:
-            mapView.userTrackingMode = .followWithHeading
-            trackingButton.setImage(ImageHeadingUp, for: .normal)
-            break
-        case .followWithHeading:
-            mapView.userTrackingMode = .none
-            trackingButton.setImage(ImageScrollMode, for: .normal)
-            break
-        default:
-            mapView.userTrackingMode = .follow
-            trackingButton.setImage(ImageNorthUp, for: .normal)
-            break
-        }
-    }
-    
-    //いらないかも
-    @IBAction func modeChange(_ sender: Any) {
-        if mapView.mapType == MKMapType.standard {
-            mapView.mapType = MKMapType.satellite
-            modeButton.setTitle("航空", for: .normal)
-        } else {
-            mapView.mapType = MKMapType.standard
-            modeButton.setTitle("標準", for: .normal)
-        }
-        
-    }
-    
-    //シミュレータ用
-    @IBAction func clickZoomIN(_ sender: Any) {
-        DispatchQueue.main.async {
-            if (0.005 < self.mapView.region.span.latitudeDelta / self.scaleRatio) {
-                print("lat縮小前：" + self.mapView.region.span.latitudeDelta.description)
-                var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
-                self.mapView.userTrackingMode = .none
-                regionSpan.latitudeDelta = self.mapView.region.span.latitudeDelta / self.scaleRatio
-                self.mapView.region.span = regionSpan
-                self.trackingButton.setImage(self.ImageScrollMode, for: .normal)
-                print("lat縮小後：" + self.mapView.region.span.latitudeDelta.description)
-            }
-        }
-    }
-    
-    //シミュレータ用
-    @IBAction func clickZoomOut(_ sender: Any) {
-        DispatchQueue.main.async {
-            if (self.mapView.region.span.latitudeDelta * self.scaleRatio < 150.0) {
-                print("lat拡大前：" + self.mapView.region.span.latitudeDelta.description)
-                var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
-                self.mapView.userTrackingMode = .none
-                regionSpan.latitudeDelta = self.mapView.region.span.latitudeDelta * self.scaleRatio
-                self.mapView.region.span = regionSpan
-                self.trackingButton.setImage(self.ImageScrollMode, for: .normal)
-                print("lat拡大後：" + self.mapView.region.span.latitudeDelta.description)
-            }
-        }
-    }
-    
+       
     // 表示スタイルの設定
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         // .noneを設定することで、設定したサイズでポップアップされる
