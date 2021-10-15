@@ -13,6 +13,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var likelistTableView: UITableView!
     var results: [ShopList] = []
+    var moveStatus: Bool = false
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -39,6 +40,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
             results.append(i)
         }
         likelistTableView.reloadData()
+        moveStatus = false
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,4 +55,18 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if moveStatus != false {
+            super.viewWillAppear(animated)
+            results = []
+            let realm = try! Realm()
+            let load_Likedatas = realm.objects(ShopList.self).filter("likeStatus == true")
+            for i in load_Likedatas {
+                results.append(i)
+            }
+            likelistTableView.reloadData()
+        } else {
+            moveStatus = true
+        }
+    }
 }

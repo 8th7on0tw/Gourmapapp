@@ -9,7 +9,7 @@ import UIKit
 import NCMB
 import KeychainAccess
 
-class StartViewController: UIViewController {
+class StartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mailAddress: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -22,6 +22,8 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mailAddress.delegate = self
+        self.password.delegate = self
         if let user = NCMBUser.currentUser {
             guard let userMailAddress = keychain[string: "mailAddress"] else { return }
             self.mailAddress.text = userMailAddress
@@ -32,9 +34,9 @@ class StartViewController: UIViewController {
             NCMBUser.logInInBackground(mailAddress: userMailAddress, password: userPassword, callback: { result in
                 switch result {
                 case .success():
-                        DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "login", sender: nil)
-                        }
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "login", sender: nil)
+                    }
                 case .failure(_):
                     return
                 }
@@ -44,6 +46,10 @@ class StartViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func loginButton(_ sender: Any) {
         

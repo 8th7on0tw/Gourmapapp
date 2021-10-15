@@ -15,8 +15,8 @@ class ViewUseCase {
         let realm = try! Realm()
         for i in shops{
             guard let shop = i.results.shop else { return shopPinAnnotations }
-            let count: Int = shop.count - 1
-            for j in 0...count{
+            if shop.count == 0 { return shopPinAnnotations }
+            for j in 0...shop.count-1{
                 let shopPinAnnotation = ShopPinAnnotation()
                 shopPinAnnotation.createShopData(i: i,j: j)
                 let shopId = shop[j].id
