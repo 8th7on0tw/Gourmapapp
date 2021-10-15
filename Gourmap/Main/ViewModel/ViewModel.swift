@@ -81,6 +81,10 @@ class ViewModelImpl: ViewModel {
         let realm = try! Realm()
         let shop_Datail = self.createDetailData(anno: shop_data)
         try! realm.write {
+            realm.object(ofType: ShopList.self, forPrimaryKey: shop_data.object_id).map {
+                shop_Datail.likeStatus = $0.likeStatus
+                shop_Datail.wishStatus = $0.wishStatus
+            }
             realm.add(shop_Datail,update: .modified)
         }
     }

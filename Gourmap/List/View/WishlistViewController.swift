@@ -13,6 +13,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var wishlistTableView: UITableView!
     var results: [ShopList] = []
+    var moveStatus: Bool = false
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
@@ -38,6 +39,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
             results.append(i)
         }
         wishlistTableView.reloadData()
+        moveStatus = false
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -52,4 +54,18 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if moveStatus != false {
+            super.viewWillAppear(animated)
+            results = []
+            let realm = try! Realm()
+            let load_Wishdatas = realm.objects(ShopList.self).filter("wishStatus == true")
+            for i in load_Wishdatas {
+                results.append(i)
+            }
+            wishlistTableView.reloadData()
+        } else {
+            moveStatus = true
+        }
+    }
 }
