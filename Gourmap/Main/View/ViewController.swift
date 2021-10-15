@@ -45,6 +45,17 @@ class ViewController: UIViewController {
         setupLocationManager()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        var region:MKCoordinateRegion = mapView.region
+        region.span.latitudeDelta = 0.01
+        region.span.longitudeDelta = 0.01
+        mapView.setRegion(region,animated:true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.startSearchShop(trackingButton as Any)
+    }
+    
     //検索窓関係
     //    func numberOfComponents(in pickerView: UIPickerView) -> Int {
     //        return 1
@@ -204,7 +215,6 @@ extension ViewController: MKMapViewDelegate{
             let reuseId = "custom"
             
             pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as! MKPinAnnotationView
-            
             pinView.canShowCallout = true
             pinView.detailCalloutAccessoryView = prview
             pinView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
