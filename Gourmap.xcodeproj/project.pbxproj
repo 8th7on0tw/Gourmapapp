@@ -45,6 +45,8 @@
 		45C0F27026B57E4100B2EE6E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C0F26F26B57E4100B2EE6E /* CustomView.swift */; };
 		45E7D54E2711DC15002ED315 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7D54D2711DC14002ED315 /* WishlistViewModel.swift */; };
 		45E7D5502711DC24002ED315 /* WishUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7D54F2711DC24002ED315 /* WishUseCase.swift */; };
+		45E7D5542718F8C0002ED315 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7D5532718F8C0002ED315 /* DetailViewModel.swift */; };
+		45E7D5572718FAB0002ED315 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E7D5562718FAAF002ED315 /* DetailUseCase.swift */; };
 		BC52F34339B9868EB568E006 /* Pods_Gourmap_GourmapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E35F2D3C34DC6EABF42353 /* Pods_Gourmap_GourmapUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		45E7D54F2711DC24002ED315 /* WishUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishUseCase.swift; sourceTree = "<group>"; };
 		45E7D5512712DF56002ED315 /* GourmapRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GourmapRelease.entitlements; sourceTree = "<group>"; };
 		45E7D5522712DF62002ED315 /* Gourmap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gourmap.entitlements; sourceTree = "<group>"; };
+		45E7D5532718F8C0002ED315 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		45E7D5562718FAAF002ED315 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		51E35F2D3C34DC6EABF42353 /* Pods_Gourmap_GourmapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gourmap_GourmapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF3699AEF3EFF3E6D2E0E47 /* Pods-Gourmap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmap.release.xcconfig"; path = "Target Support Files/Pods-Gourmap/Pods-Gourmap.release.xcconfig"; sourceTree = "<group>"; };
 		8BF75FA598447B60B993A5B7 /* Pods_Gourmap_GourmapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gourmap_GourmapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +169,7 @@
 		45046A8826DD23F1007B5285 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				45E7D5552718FA95002ED315 /* UseCase */,
 				45E7D54A2709EB70002ED315 /* ViewModel */,
 				45E7D5492709EB64002ED315 /* View */,
 			);
@@ -439,8 +444,17 @@
 		45E7D54A2709EB70002ED315 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				45E7D5532718F8C0002ED315 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45E7D5552718FA95002ED315 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				45E7D5562718FAAF002ED315 /* DetailUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		9B72705B8584DC105B383BF2 /* Pods */ = {
@@ -744,11 +758,13 @@
 			files = (
 				45B351BD26E4B9A200CABEE6 /* LikelistViewModel.swift in Sources */,
 				4560804626E4B66300AB01E0 /* ShopDataEntity.swift in Sources */,
+				45E7D5542718F8C0002ED315 /* DetailViewModel.swift in Sources */,
 				45C0F26A26AD8B0A00B2EE6E /* ViewModel.swift in Sources */,
 				45B351BA26E4B86E00CABEE6 /* LikeUseCase.swift in Sources */,
 				4581A7C826CBFA6500FA44BE /* StartViewController.swift in Sources */,
 				4581A7E426DA09D600FA44BE /* SignupViewController.swift in Sources */,
 				45046A8726DD190E007B5285 /* WishlistViewController.swift in Sources */,
+				45E7D5572718FAB0002ED315 /* DetailUseCase.swift in Sources */,
 				459758522686DB9D000D8FAD /* ViewController.swift in Sources */,
 				45B351CB26F622F700CABEE6 /* PopoverViewController.swift in Sources */,
 				4597584E2686DB9D000D8FAD /* AppDelegate.swift in Sources */,

@@ -11,13 +11,13 @@ import RealmSwift
 class WishUseCase{
     
     init(){
-//        let config = Realm.Configuration(
-//            schemaVersion: 3,
-//            migrationBlock: { migration, oldSchemaVersion in
-//                if (oldSchemaVersion < 1) {
-//                }
-//            })
-//        Realm.Configuration.defaultConfiguration = config
+        //        let config = Realm.Configuration(
+        //            schemaVersion: 3,
+        //            migrationBlock: { migration, oldSchemaVersion in
+        //                if (oldSchemaVersion < 1) {
+        //                }
+        //            })
+        //        Realm.Configuration.defaultConfiguration = config
     }
     
     func saveWishShop(wishShop: ShopList){
@@ -49,12 +49,8 @@ class WishUseCase{
         try! realm.write {
             //高階関数　値が取得できた場合のみ処理をする
             realm.object(ofType: ShopList.self, forPrimaryKey: shopId).map {
-                if $0.likeStatus == false {
-                     realm.delete($0)
-                } else {
-                    $0.wishStatus = false
-                    realm.add($0, update: .modified)
-                }
+                $0.wishStatus = false
+                realm.add($0, update: .modified)
             }
         }
     }

@@ -195,8 +195,8 @@ extension ViewController: MKMapViewDelegate{
         if annotation is ShopPinAnnotation{
             let pinAnnotation = annotation as! ShopPinAnnotation
             let imageURL = URL(string: pinAnnotation.shop_logo_image)
-            var testview = UINib(nibName: "View", bundle: .main)
-            var prview = testview.instantiate(withOwner: self).first as! CustomView
+            let testview = UINib(nibName: "View", bundle: .main)
+            let prview = testview.instantiate(withOwner: self).first as! CustomView
             prview.customView.sd_setImage(with: imageURL, placeholderImage: nil)
             
             let reuseId = "custom"
@@ -213,13 +213,14 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let shopAnno = view.annotation as! ShopPinAnnotation
         let shopData = viewModel.createDetailData(anno: shopAnno)
-        self.performSegue(withIdentifier: "toDetail", sender: shopData)
+        viewModel.registerRealmData(shop_data: shopAnno)
+        self.performSegue(withIdentifier: "toDetail", sender: shopData.object_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.getData = sender as! ShopList
+            detailViewController.shop_id = sender as! String
         }
     }
 }

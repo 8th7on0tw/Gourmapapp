@@ -32,6 +32,7 @@ enum SuccessPatarn{
 protocol ViewModel {
     func createShopData(lat: String,lng: String,completion:  (Result<SuccessPatarn,ViewModelError>) -> Void)
     func createDetailData(anno: ShopPinAnnotation) -> ShopList
+    func registerRealmData(shop_data: ShopPinAnnotation)
 }
 
 class ViewModelImpl: ViewModel {
@@ -74,5 +75,13 @@ class ViewModelImpl: ViewModel {
         shopData.likeStatus = anno.likeStatus
         shopData.wishStatus = anno.wishStatus
         return shopData
+    }
+    
+    func registerRealmData(shop_data: ShopPinAnnotation){
+        let realm = try! Realm()
+        let shop_Datail = self.createDetailData(anno: shop_data)
+        try! realm.write {
+            realm.add(shop_Datail,update: .modified)
+        }
     }
 }

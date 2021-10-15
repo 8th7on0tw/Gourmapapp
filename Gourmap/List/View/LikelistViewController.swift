@@ -43,13 +43,13 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toDetailFromLike", sender: results[indexPath.row])
+        performSegue(withIdentifier: "toDetailFromLike", sender: results[indexPath.row].object_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailFromLike" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.getData = sender as! ShopList
+            detailViewController.shop_id = sender as! String
         }
     }
     

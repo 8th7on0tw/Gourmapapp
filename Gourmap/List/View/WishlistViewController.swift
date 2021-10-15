@@ -42,13 +42,13 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toDetailFromWish", sender: results[indexPath.row])
+        performSegue(withIdentifier: "toDetailFromWish", sender: results[indexPath.row].object_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailFromWish" {
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.getData = sender as! ShopList
+            detailViewController.shop_id = sender as! String
         }
     }
     
