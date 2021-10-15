@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         //        searchPickerView.dataSource = self
         //        searchPickerView.delegate = self
         
+        viewModel.initialRealmData()
         self.navigationItem.hidesBackButton = true
         mapView.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
         setupLocationManager()
@@ -167,6 +168,7 @@ class ViewController: UIViewController {
     //        _ = unwindSegue.source
     //        let detailViewController = unwindSegue.source as! DetailViewController
     //    }
+    
 }
 
 extension ViewController: CLLocationManagerDelegate{

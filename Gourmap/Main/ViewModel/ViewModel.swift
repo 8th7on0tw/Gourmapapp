@@ -33,6 +33,7 @@ protocol ViewModel {
     func createShopData(lat: String,lng: String,completion:  (Result<SuccessPatarn,ViewModelError>) -> Void)
     func createDetailData(anno: ShopPinAnnotation) -> ShopList
     func registerRealmData(shop_data: ShopPinAnnotation)
+    func initialRealmData()
 }
 
 class ViewModelImpl: ViewModel {
@@ -86,6 +87,18 @@ class ViewModelImpl: ViewModel {
                 shop_Datail.wishStatus = $0.wishStatus
             }
             realm.add(shop_Datail,update: .modified)
+        }
+    }
+    
+    func initialRealmData(){
+        let realm = try! Realm()
+        let targetDeleteData = realm.objects(ShopList.self).filter("likeStatus == false AND wishStatus == false")
+        do{
+            try realm.write{
+                realm.delete(targetDeleteData)
+            }
+        }catch {
+            print("Error \(error)")
         }
     }
 }
