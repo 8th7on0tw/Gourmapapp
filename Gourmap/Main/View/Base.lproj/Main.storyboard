@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0OE-B0-S67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1403" y="124"/>
+            <point key="canvasLocation" x="-636" y="124"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="3vn-gX-hqQ">
@@ -135,13 +135,13 @@
                         <outlet property="mailAddress" destination="rYn-DJ-bHo" id="b7v-Dm-Hla"/>
                         <outlet property="password" destination="5j0-fl-PnB" id="NBK-Tm-QcX"/>
                         <outlet property="startLabel" destination="lbr-Rx-Gyz" id="5S1-Sj-WQj"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="2gK-lc-g8C"/>
+                        <segue destination="fPG-hm-1gs" kind="show" identifier="login" id="2gK-lc-g8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4G5-Kv-CQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ucf-RQ-BEf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-635" y="124"/>
+            <point key="canvasLocation" x="148" y="124"/>
         </scene>
         <!--Popover View Controller-->
         <scene sceneID="IFf-aH-h9x">
@@ -192,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="148" y="-355"/>
         </scene>
-        <!--View Controller-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Gourmap" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,13 +239,10 @@
                             <constraint firstItem="2wv-O3-NlX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iLf-AP-5RB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="JGX-mg-SiV"/>
                     <navigationItem key="navigationItem" id="eqU-OB-5ek">
                         <barButtonItem key="leftBarButtonItem" title="ログアウト" id="IVP-4r-iOI"/>
-                        <barButtonItem key="rightBarButtonItem" title="リスト表示" id="kkM-WS-8dn">
-                            <connections>
-                                <segue destination="a7G-KU-41Y" kind="show" id="jel-Nw-2oO"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="リスト表示" id="kkM-WS-8dn"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="2wv-O3-NlX" id="vnU-bQ-Eq0"/>
@@ -254,47 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
-        </scene>
-        <!--List View Controller-->
-        <scene sceneID="5P1-rh-Itn">
-            <objects>
-                <viewController id="a7G-KU-41Y" customClass="ListViewController" customModule="Gourmap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PfU-AJ-Pc4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnL-Ce-OQG">
-                                <rect key="frame" x="131" y="274" width="152" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="お気に入り"/>
-                                <connections>
-                                    <segue destination="Xsc-QU-w2i" kind="show" id="tVZ-Za-jtw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gD-hq-uno">
-                                <rect key="frame" x="131" y="574" width="152" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="次行きたい"/>
-                                <connections>
-                                    <segue destination="kq4-RE-TAh" kind="show" id="ihR-AE-gUe"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="H07-ne-zgw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="5gD-hq-uno" firstAttribute="centerY" secondItem="PfU-AJ-Pc4" secondAttribute="centerY" constant="150" id="5b4-tO-Pgm"/>
-                            <constraint firstItem="LnL-Ce-OQG" firstAttribute="centerY" secondItem="PfU-AJ-Pc4" secondAttribute="centerY" constant="-150" id="6X3-l5-Xyw"/>
-                            <constraint firstItem="5gD-hq-uno" firstAttribute="centerX" secondItem="PfU-AJ-Pc4" secondAttribute="centerX" id="H2N-aX-Bix"/>
-                            <constraint firstItem="LnL-Ce-OQG" firstAttribute="centerX" secondItem="PfU-AJ-Pc4" secondAttribute="centerX" id="go5-tP-RHK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Lny-Pk-PvR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IXD-TE-p2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="913" y="883"/>
+            <point key="canvasLocation" x="1839" y="124"/>
         </scene>
         <!--新規登録-->
         <scene sceneID="FdW-Ke-LzE">
@@ -456,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCf-bm-mc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="883"/>
+            <point key="canvasLocation" x="148" y="883"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="nEN-UH-kP7">
@@ -530,9 +487,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y74-Yi-hkI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="G8d-XH-OV1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="912" y="124"/>
+            <point key="canvasLocation" x="2646" y="124"/>
         </scene>
-        <!--Likelist View Controller-->
+        <!--Likelist-->
         <scene sceneID="MHN-G8-Lzq">
             <objects>
                 <viewController id="Xsc-QU-w2i" customClass="LikelistViewController" customModule="Gourmap" customModuleProvider="target" sceneMemberID="viewController">
@@ -616,6 +573,7 @@
                             <constraint firstAttribute="bottom" secondItem="FU6-JS-IAk" secondAttribute="bottom" id="wZR-TI-bcF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Likelist" image="heart.fill" catalog="system" id="j64-0o-uBk"/>
                     <navigationItem key="navigationItem" id="SmI-ZN-vVn"/>
                     <connections>
                         <outlet property="likelistTableView" destination="FU6-JS-IAk" id="F8Q-kf-Wd4"/>
@@ -624,9 +582,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8EH-TT-2ei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="124"/>
+            <point key="canvasLocation" x="1838" y="883"/>
         </scene>
-        <!--Wishlist View Controller-->
+        <!--Wishlist-->
         <scene sceneID="VLT-Q3-CPz">
             <objects>
                 <viewController id="kq4-RE-TAh" customClass="WishlistViewController" customModule="Gourmap" customModuleProvider="target" sceneMemberID="viewController">
@@ -710,6 +668,7 @@
                             <constraint firstItem="Jix-CE-WNf" firstAttribute="leading" secondItem="5dM-dx-zH9" secondAttribute="leading" id="b5r-ns-ISr"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Wishlist" image="bookmark.fill" catalog="system" id="5rf-1a-bx1"/>
                     <navigationItem key="navigationItem" id="PW5-KX-9O7"/>
                     <connections>
                         <outlet property="wishlistTableView" destination="Jix-CE-WNf" id="4eA-GI-DyB"/>
@@ -718,13 +677,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hw8-91-Uze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="883"/>
+            <point key="canvasLocation" x="1838" y="-589"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oKc-F3-hZF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fPG-hm-1gs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="0yQ-oB-qNl"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pon-cR-1Lc">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8jS-02-fM8"/>
+                        <segue destination="kq4-RE-TAh" kind="relationship" relationship="viewControllers" id="n9H-bO-9a5"/>
+                        <segue destination="Xsc-QU-w2i" kind="relationship" relationship="viewControllers" id="RG0-Oo-C46"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPf-9k-Hhz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="124"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="irG-js-GRT"/>
+        <segue reference="ViS-0c-ylJ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

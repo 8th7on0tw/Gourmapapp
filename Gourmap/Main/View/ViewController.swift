@@ -14,17 +14,12 @@ import SDWebImage
 class ViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var trackingButton: UIButton!
-    @IBOutlet var modeButton: UIButton!
-    //    @IBOutlet weak var searchPickerView: UIPickerView!
-    
     
     let viewModel: ViewModel = ViewModelImpl()
     let hottpepperModel: HotpepperModel = HotpepperModelImpl()
     let scaleRatio = 1.5
     var locationManager: CLLocationManager!
     var list: [Shop] = []
-    //    var pickerList = ["駅名で検索","住所で検索"]
     
     let ImageHeadingUp :UIImage? = UIImage(named:"ImageHeadingUp")
     let ImageScrollMode :UIImage? = UIImage(named:"ImageScrollMode")
@@ -35,10 +30,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        searchPickerView.dataSource = self
-        //        searchPickerView.delegate = self
-        
         viewModel.initialRealmData()
         self.navigationItem.hidesBackButton = true
         mapView.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
@@ -52,32 +43,11 @@ class ViewController: UIViewController {
         mapView.setRegion(region,animated:true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.startSearchShop(trackingButton as Any)
-    }
-    
-    //検索窓関係
-    //    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    //        return 1
-    //    }
-    //
-    //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    //        return pickerList.count
-    //    }
-    //
-    //    func pickerView(searchPickerview: UIPickerView, titleForRow row: Int, forComponent component: Int)-> String! {
-    //        return pickerList[row]
-    //    }
-    
     func setupLocationManager() {
         locationManager = CLLocationManager()
-        
         guard let locationManager = locationManager else { return }
-        
         locationManager.requestWhenInUseAuthorization()
-        
         let status = CLLocationManager.authorizationStatus()
-        
         if status == .authorizedWhenInUse {
             locationManager.delegate = self
             locationManager.distanceFilter = 10
@@ -114,12 +84,6 @@ class ViewController: UIViewController {
         // .noneを設定することで、設定したサイズでポップアップされる
         return .none
     }
-    
-    //    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
-    //        _ = unwindSegue.source
-    //        let detailViewController = unwindSegue.source as! DetailViewController
-    //    }
-    
 }
 
 extension ViewController: CLLocationManagerDelegate{
