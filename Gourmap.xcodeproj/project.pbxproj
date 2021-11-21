@@ -12,6 +12,7 @@
 		45046A8526DBFDFC007B5285 /* LikelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8426DBFDFC007B5285 /* LikelistViewController.swift */; };
 		45046A8726DD190E007B5285 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8626DD190E007B5285 /* WishlistViewController.swift */; };
 		45046A8A26DD240C007B5285 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8926DD240C007B5285 /* DetailViewController.swift */; };
+		4522B65A274A1AB500B3637E /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522B659274A1AB500B3637E /* DetailTableViewCell.swift */; };
 		455A590C27198B300016CD2C /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A590B27198B300016CD2C /* Realm.swift */; };
 		4560803F26E3B9D200AB01E0 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560803E26E3B9D200AB01E0 /* LikeTableViewCell.swift */; };
 		4560804126E3B9E100AB01E0 /* WishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560804026E3B9E100AB01E0 /* WishTableViewCell.swift */; };
@@ -77,6 +78,7 @@
 		45046A8426DBFDFC007B5285 /* LikelistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikelistViewController.swift; sourceTree = "<group>"; };
 		45046A8626DD190E007B5285 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		45046A8926DD240C007B5285 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4522B659274A1AB500B3637E /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		455A590B27198B300016CD2C /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		4560803E26E3B9D200AB01E0 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		4560804026E3B9E100AB01E0 /* WishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTableViewCell.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				45046A8926DD240C007B5285 /* DetailViewController.swift */,
+				4522B659274A1AB500B3637E /* DetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				45046A8726DD190E007B5285 /* WishlistViewController.swift in Sources */,
 				45E7D5572718FAB0002ED315 /* DetailUseCase.swift in Sources */,
 				459758522686DB9D000D8FAD /* ViewController.swift in Sources */,
+				4522B65A274A1AB500B3637E /* DetailTableViewCell.swift in Sources */,
 				45B351CB26F622F700CABEE6 /* PopoverViewController.swift in Sources */,
 				4597584E2686DB9D000D8FAD /* AppDelegate.swift in Sources */,
 				4560804126E3B9E100AB01E0 /* WishTableViewCell.swift in Sources */,

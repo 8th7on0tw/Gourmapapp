@@ -21,4 +21,22 @@ class DetailViewModel {
             break
         }
     }
+    
+    func makeContentsDetail(data: ShopList) -> [String?] {
+        var makeCell:[String?] = []
+        makeCell.append(data.shop_name)
+        makeCell.append(Optional(nil)) //電話番号
+        makeCell.append(data.shop_address)
+        makeCell.append(Optional(nil))//最寄駅
+        makeCell.append(Optional(nil))//交通アクセス
+        makeCell.append(Optional(nil))//営業時間
+        makeCell.append(Optional(nil))//定休日
+        makeCell.append(Optional(nil))//予算
+        makeCell.append(Optional(nil))//カード利用
+        makeCell.append(Optional(nil))//総席数
+        makeCell.append(Optional(nil))//駐車場
+        makeCell.append(Optional(nil))//PCクーポン
+        makeCell.append(Optional(nil))//スマホクーポン
+        return makeCell
+    }
 }
