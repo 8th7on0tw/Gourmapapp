@@ -19,11 +19,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return contentsName.count
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "likelistCell", for: indexPath) as! LikeTableViewCell
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailTableViewCell
         cell.contentsName.text = contentsName[indexPath.row]
