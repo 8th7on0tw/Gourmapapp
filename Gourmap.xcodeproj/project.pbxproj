@@ -12,6 +12,8 @@
 		45046A8526DBFDFC007B5285 /* LikelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8426DBFDFC007B5285 /* LikelistViewController.swift */; };
 		45046A8726DD190E007B5285 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8626DD190E007B5285 /* WishlistViewController.swift */; };
 		45046A8A26DD240C007B5285 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45046A8926DD240C007B5285 /* DetailViewController.swift */; };
+		4522B65A274A1AB500B3637E /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522B659274A1AB500B3637E /* DetailTableViewCell.swift */; };
+		455A590C27198B300016CD2C /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A590B27198B300016CD2C /* Realm.swift */; };
 		4560803F26E3B9D200AB01E0 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560803E26E3B9D200AB01E0 /* LikeTableViewCell.swift */; };
 		4560804126E3B9E100AB01E0 /* WishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560804026E3B9E100AB01E0 /* WishTableViewCell.swift */; };
 		4560804326E3BDD300AB01E0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560804226E3BDD300AB01E0 /* ListViewController.swift */; };
@@ -76,6 +78,8 @@
 		45046A8426DBFDFC007B5285 /* LikelistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikelistViewController.swift; sourceTree = "<group>"; };
 		45046A8626DD190E007B5285 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		45046A8926DD240C007B5285 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4522B659274A1AB500B3637E /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		455A590B27198B300016CD2C /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		4560803E26E3B9D200AB01E0 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		4560804026E3B9E100AB01E0 /* WishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTableViewCell.swift; sourceTree = "<group>"; };
 		4560804226E3BDD300AB01E0 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				45B351D426F7390900CABEE6 /* UIImageView+setImage.swift */,
+				455A590B27198B300016CD2C /* Realm.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				45046A8926DD240C007B5285 /* DetailViewController.swift */,
+				4522B659274A1AB500B3637E /* DetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -766,6 +772,7 @@
 				45046A8726DD190E007B5285 /* WishlistViewController.swift in Sources */,
 				45E7D5572718FAB0002ED315 /* DetailUseCase.swift in Sources */,
 				459758522686DB9D000D8FAD /* ViewController.swift in Sources */,
+				4522B65A274A1AB500B3637E /* DetailTableViewCell.swift in Sources */,
 				45B351CB26F622F700CABEE6 /* PopoverViewController.swift in Sources */,
 				4597584E2686DB9D000D8FAD /* AppDelegate.swift in Sources */,
 				4560804126E3B9E100AB01E0 /* WishTableViewCell.swift in Sources */,
@@ -773,6 +780,7 @@
 				4581A7E826DA10BA00FA44BE /* SignupViewModel.swift in Sources */,
 				45C0F27026B57E4100B2EE6E /* CustomView.swift in Sources */,
 				45E7D54E2711DC15002ED315 /* WishlistViewModel.swift in Sources */,
+				455A590C27198B300016CD2C /* Realm.swift in Sources */,
 				45B351D826F7399F00CABEE6 /* HotpepperEntity.swift in Sources */,
 				4560803F26E3B9D200AB01E0 /* LikeTableViewCell.swift in Sources */,
 				45C0F26C26AD925B00B2EE6E /* HotpepperModel.swift in Sources */,
@@ -1035,12 +1043,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7X4ZA3JF5T;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = Gourmap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smart-dmy.Gourmap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Gourmap_dev;
@@ -1061,6 +1071,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7X4ZA3JF5T;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = Gourmap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,8 +7,30 @@
 
 import UIKit
 import SDWebImage
+import SwiftUI
 
-class DetailViewController: UIViewController{
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    @IBOutlet var detailTableView: UITableView!
+    var contentsName: [String] = ["店名","電話番号","住所","最寄駅","交通アクセス","営業時間","定休日","予算","カード利用","総席数","駐車場","PCクーポン","スマホクーポン"]
+    var contentsDetail: [String?] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contentsName.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailTableViewCell
+        cell.contentsName.text = contentsName[indexPath.row]
+        if let detail = contentsDetail[indexPath.row] {
+            cell.contentsDetail.text = detail
+            cell.contentsDetail.textAlignment = NSTextAlignment.right
+        } else {
+            cell.contentsDetail.text = "ー"
+            cell.contentsDetail.textAlignment = NSTextAlignment.center
+        }
+        return cell
+    }
     
     @IBOutlet weak var shopName: UILabel!
     @IBOutlet weak var shopGenre: UILabel!
@@ -33,6 +55,7 @@ class DetailViewController: UIViewController{
             shopGenre.text = data.shop_genre
             let imageURL = URL(string: data.shop_photo_mobile)
             shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
+            contentsDetail = detailViewModel.makeContentsDetail(data: data)
             likelistViewModel.getLikeStatus(shop_id: data.object_id) {
                 if $0 == false {
                     likeFlag = false

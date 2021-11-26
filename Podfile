@@ -9,12 +9,22 @@ target "Gourmap" do
   pod 'RealmSwift'
   pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
   
-  target 'GourmapTests' do
+  target 'GourmapTests' dopost_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+  end
     pod 'SDWebImage', '~> 5.0'
   end
   
   target 'GourmapUITests' do
     pod 'SDWebImage', '~> 5.0'
+  end
+  
+  post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
   end
   
 end

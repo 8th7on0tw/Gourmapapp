@@ -91,6 +91,7 @@ class ViewModelImpl: ViewModel {
     }
     
     func initialRealmData(){
+        self.migrationRealmData()
         let realm = try! Realm()
         let targetDeleteData = realm.objects(ShopList.self).filter("likeStatus == false AND wishStatus == false")
         do{
@@ -100,5 +101,16 @@ class ViewModelImpl: ViewModel {
         }catch {
             print("Error \(error)")
         }
+    }
+    
+    func migrationRealmData(){
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    //変更時の処理
+                }
+            })
+        Realm.Configuration.defaultConfiguration = config
     }
 }

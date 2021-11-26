@@ -24,7 +24,7 @@ class HotpepperModelImpl: HotpepperModel{
         var flag :Bool = false
         for i in 1...3 {
             if flag == true { break }
-            let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0d99f5ede1c5eb2c&lat=\(lat)&lng=\(lng)&range=1&order=4&format=json&start=\(start)&count=\(max)")!
+            let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0d99f5ede1c5eb2c&lat=\(lat)&lng=\(lng)&range=3&order=4&format=json&start=\(start)&count=\(max)")!
             let request = URLRequest(url: url)
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 guard let data = data else { return }

@@ -30,7 +30,6 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Likelist"
