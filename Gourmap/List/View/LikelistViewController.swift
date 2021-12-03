@@ -24,7 +24,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
         let likeShop = results[indexPath.row]
         cell.shopName.text = likeShop.shop_name
         cell.shopAddress.text = likeShop.shop_address
-        cell.shopGenre.text = likeShop.shop_genre
+        cell.shopGenre.text = likeShop.shop_genre_name
         let imageURL = URL(string: likeShop.shop_logo_image)
         cell.shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
         return cell
@@ -44,7 +44,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toDetailFromLike", sender: results[indexPath.row].object_id)
+        performSegue(withIdentifier: "toDetailFromLike", sender: results[indexPath.row].shop_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

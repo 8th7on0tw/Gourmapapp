@@ -22,7 +22,7 @@ class LikeUseCase{
     
     func saveLikeShop(likeShop: ShopList){
         let realm = try! Realm()
-        let shop_id = likeShop.object_id
+        let shop_id = likeShop.shop_id
         try! realm.write {
             realm.object(ofType: ShopList.self, forPrimaryKey: shop_id).map {
                 likeShop.wishStatus = $0.wishStatus
@@ -44,7 +44,7 @@ class LikeUseCase{
     
     func deleteLikeShop(likeShop: ShopList){
         let realm = try! Realm()
-        let shopId = likeShop.object_id
+        let shopId = likeShop.shop_id
         try! realm.write {
             //高階関数　値が取得できた場合のみ処理をする
             realm.object(ofType: ShopList.self, forPrimaryKey: shopId).map {

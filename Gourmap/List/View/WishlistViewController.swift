@@ -24,7 +24,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
         let wishShop = results[indexPath.row]
         cell.wishShopName.text = wishShop.shop_name
         cell.wishShopAddress.text = wishShop.shop_address
-        cell.wishShopGenre.text = wishShop.shop_genre
+        cell.wishShopGenre.text = wishShop.shop_genre_name
         let imageURL = URL(string: wishShop.shop_logo_image)
         cell.wishShopImage.sd_setImage(with: imageURL, placeholderImage: nil)
         return cell
@@ -44,7 +44,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toDetailFromWish", sender: results[indexPath.row].object_id)
+        performSegue(withIdentifier: "toDetailFromWish", sender: results[indexPath.row].shop_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,12 +7,11 @@
 
 import UIKit
 import SDWebImage
-import SwiftUI
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet var detailTableView: UITableView!
-    var contentsName: [String] = ["店名","電話番号","住所","最寄駅","交通アクセス","営業時間","定休日","予算","カード利用","総席数","駐車場","PCクーポン","スマホクーポン"]
+    var contentsName: [String] = ["店名","店舗ページ","住所","最寄駅","交通アクセス","営業時間","定休日","予算","カード利用","総席数","駐車場","PCクーポン","スマホクーポン"]
     var contentsDetail: [String?] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,11 +51,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             shop_data = data
             self.navigationItem.hidesBackButton = false
             shopName.text = data.shop_name
-            shopGenre.text = data.shop_genre
-            let imageURL = URL(string: data.shop_photo_mobile)
+            shopGenre.text = data.shop_genre_name
+            let imageURL = URL(string: data.shop_photo_mobile_l)
             shopImage.sd_setImage(with: imageURL, placeholderImage: nil)
             contentsDetail = detailViewModel.makeContentsDetail(data: data)
-            likelistViewModel.getLikeStatus(shop_id: data.object_id) {
+            likelistViewModel.getLikeStatus(shop_id: data.shop_id) {
                 if $0 == false {
                     likeFlag = false
                     likeLabel.backgroundColor = UIColor.white
@@ -67,7 +66,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     likeLabel.setTitleColor(UIColor.white, for: .normal)
                 }
             }
-            wishlistViewModel.getWishStatus(shop_id: data.object_id) {
+            wishlistViewModel.getWishStatus(shop_id: data.shop_id) {
                 if $0 == false {
                     wishFlag = false
                     wishLabel.backgroundColor = UIColor.white

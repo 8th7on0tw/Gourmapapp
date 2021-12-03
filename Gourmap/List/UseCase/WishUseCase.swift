@@ -22,7 +22,7 @@ class WishUseCase{
     
     func saveWishShop(wishShop: ShopList){
         let realm = try! Realm()
-        let shop_id = wishShop.object_id
+        let shop_id = wishShop.shop_id
         
         try! realm.write {
             realm.object(ofType: ShopList.self, forPrimaryKey: shop_id).map {
@@ -45,7 +45,7 @@ class WishUseCase{
     
     func deleteWishShop(wishShop: ShopList){
         let realm = try! Realm()
-        let shopId = wishShop.object_id
+        let shopId = wishShop.shop_id
         try! realm.write {
             //高階関数　値が取得できた場合のみ処理をする
             realm.object(ofType: ShopList.self, forPrimaryKey: shopId).map {

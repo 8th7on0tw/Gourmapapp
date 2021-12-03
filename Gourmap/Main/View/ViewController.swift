@@ -130,7 +130,7 @@ extension ViewController: MKMapViewDelegate{
         let shopAnno = view.annotation as! ShopPinAnnotation
         let shopData = viewModel.createDetailData(anno: shopAnno)
         viewModel.registerRealmData(shop_data: shopAnno)
-        self.performSegue(withIdentifier: "toDetail", sender: shopData.object_id)
+        self.performSegue(withIdentifier: "toDetail", sender: shopData.shop_id)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
