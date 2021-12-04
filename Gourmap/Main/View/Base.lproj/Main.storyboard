@@ -13,7 +13,6 @@
         <!--Navigation Controller-->
         <scene sceneID="hAI-5o-YN6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0OE-B0-S67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NavigationController" id="IV5-NF-kwY" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bhO-07-Oda">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -23,14 +22,13 @@
                         <segue destination="Ydc-2R-KWx" kind="relationship" relationship="rootViewController" id="Jd2-Af-FLr"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0OE-B0-S67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-636" y="124"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="3vn-gX-hqQ">
             <objects>
-                <exit id="ucf-RQ-BEf" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4G5-Kv-CQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Ydc-2R-KWx" customClass="StartViewController" customModule="Gourmap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kjQ-sP-f3Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -140,6 +138,8 @@
                         <segue destination="fPG-hm-1gs" kind="show" identifier="login" id="2gK-lc-g8C"/>
                     </connections>
                 </viewController>
+                <exit id="ucf-RQ-BEf" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4G5-Kv-CQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148" y="124"/>
         </scene>
@@ -421,24 +421,24 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="xtr-ni-Hyh" customClass="DetailTableViewCell" customModule="Gourmap" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="394" height="43"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="394" height="40.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xtr-ni-Hyh" id="oyY-Ou-YbS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="40.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-ns-1Je">
-                                                            <rect key="frame" x="20" y="11" width="354" height="21"/>
+                                                            <rect key="frame" x="20" y="11" width="354" height="18.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwO-a6-HDW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="18.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUC-HD-isJ">
-                                                                    <rect key="frame" x="118" y="0.0" width="236" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUC-HD-isJ">
+                                                                    <rect key="frame" x="118" y="0.0" width="236" height="18.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -528,6 +528,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="お気に入りのお店を追加しよう！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAh-91-cFb">
+                                <rect key="frame" x="29" y="433" width="380" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-JS-IAk">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -607,6 +614,7 @@
                     <tabBarItem key="tabBarItem" title="Likelist" image="heart.fill" catalog="system" id="j64-0o-uBk"/>
                     <navigationItem key="navigationItem" id="SmI-ZN-vVn"/>
                     <connections>
+                        <outlet property="enptyMessage" destination="cAh-91-cFb" id="ABJ-ey-LV0"/>
                         <outlet property="likelistTableView" destination="FU6-JS-IAk" id="F8Q-kf-Wd4"/>
                         <segue destination="XZh-zm-OxN" kind="show" identifier="toDetailFromLike" id="ViS-0c-ylJ"/>
                     </connections>
@@ -623,6 +631,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次行きたいお店を追加しよう！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upM-Oo-XIv">
+                                <rect key="frame" x="29.5" y="433" width="355" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-CE-WNf">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -696,12 +710,15 @@
                             <constraint firstAttribute="bottom" secondItem="Jix-CE-WNf" secondAttribute="bottom" id="7Jl-bH-fri"/>
                             <constraint firstItem="Jix-CE-WNf" firstAttribute="trailing" secondItem="5dM-dx-zH9" secondAttribute="trailing" id="IAZ-jr-qzg"/>
                             <constraint firstItem="Jix-CE-WNf" firstAttribute="top" secondItem="5dM-dx-zH9" secondAttribute="top" id="UiE-Q5-GJC"/>
+                            <constraint firstItem="upM-Oo-XIv" firstAttribute="centerY" secondItem="94Y-hP-Ij9" secondAttribute="centerY" id="awB-c3-XXR"/>
                             <constraint firstItem="Jix-CE-WNf" firstAttribute="leading" secondItem="5dM-dx-zH9" secondAttribute="leading" id="b5r-ns-ISr"/>
+                            <constraint firstItem="upM-Oo-XIv" firstAttribute="centerX" secondItem="94Y-hP-Ij9" secondAttribute="centerX" id="mRR-12-V6b"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wishlist" image="bookmark.fill" catalog="system" id="5rf-1a-bx1"/>
                     <navigationItem key="navigationItem" id="PW5-KX-9O7"/>
                     <connections>
+                        <outlet property="enptyMessage" destination="upM-Oo-XIv" id="Uxn-yS-ouH"/>
                         <outlet property="wishlistTableView" destination="Jix-CE-WNf" id="4eA-GI-DyB"/>
                         <segue destination="XZh-zm-OxN" kind="show" identifier="toDetailFromWish" id="sB2-Kw-a0r"/>
                     </connections>
@@ -733,7 +750,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sB2-Kw-a0r"/>
+        <segue reference="irG-js-GRT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>

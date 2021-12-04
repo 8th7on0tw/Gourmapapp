@@ -12,6 +12,7 @@ import SDWebImage
 class WishlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var wishlistTableView: UITableView!
+    @IBOutlet var enptyMessage: UILabel!
     var results: [ShopList] = []
     var moveStatus: Bool = false
     
@@ -33,6 +34,7 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Wishlist"
+        self.navigationItem.hidesBackButton = true
         let realm = try! Realm()
         let wishdatas = realm.objects(ShopList.self).filter("wishStatus == true")
         for i in wishdatas {
@@ -66,6 +68,13 @@ class WishlistViewController: UIViewController, UITableViewDelegate, UITableView
             wishlistTableView.reloadData()
         } else {
             moveStatus = true
+        }
+        if results.count == 0 {
+            wishlistTableView.isHidden = true
+            enptyMessage.isHidden = false
+        } else {
+            wishlistTableView.isHidden = false
+            enptyMessage.isHidden = true
         }
     }
 }

@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.initialRealmData()
         self.navigationItem.hidesBackButton = true
+        viewModel.initialRealmData()
         mapView.register(MKPinAnnotationView.self, forAnnotationViewWithReuseIdentifier: "custom")
         setupLocationManager()
     }

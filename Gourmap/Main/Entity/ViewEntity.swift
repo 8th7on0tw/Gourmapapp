@@ -42,11 +42,10 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
     @objc dynamic var shop_photo_pc_s: String = "error"
     @objc dynamic var shop_photo_mobile_l: String = "error"
     @objc dynamic var shop_photo_mobile_s: String = "error"
-    
     @objc dynamic var likeStatus: Bool = false
     @objc dynamic var wishStatus: Bool = false
-    //    @objc dynamic var title: String? = ""
-    //    @objc dynamic var subtitle: String? = ""
+    @objc dynamic var title: String? = ""
+    @objc dynamic var subtitle: String? = ""
     
     func createShopData(i: Hotpepper,j: Int){
         guard let shop = i.results.shop else { return }
@@ -58,12 +57,14 @@ class ShopPinAnnotation: NSObject,MKAnnotation{
         //        results_returned = i.results.results_returned
         shop_id = shop[j].id
         shop_name = shop[j].name
+        title = shop[j].name
         shop_logo_image = shop[j].logo_image
         shop_address = shop[j].address
         shop_station_name = shop[j].station_name
         shop_lat = shop[j].lat
         shop_lng = shop[j].lng
         shop_genre_name = shop[j].genre.name
+        subtitle = shop[j].genre.name
         shop_budget_name = shop[j].budget.name
         shop_capacity = shop[j].capacity
         shop_access = shop[j].access

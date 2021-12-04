@@ -12,6 +12,7 @@ import SDWebImage
 class LikelistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var likelistTableView: UITableView!
+    @IBOutlet var enptyMessage: UILabel!
     var results: [ShopList] = []
     var moveStatus: Bool = false
     
@@ -33,6 +34,7 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Likelist"
+        self.navigationItem.hidesBackButton = true
         let realm = try! Realm()
         let likedatas = realm.objects(ShopList.self).filter("likeStatus == true")
         for i in likedatas {
@@ -66,6 +68,13 @@ class LikelistViewController: UIViewController, UITableViewDelegate, UITableView
             likelistTableView.reloadData()
         } else {
             moveStatus = true
+        }
+        if results.count == 0 {
+            likelistTableView.isHidden = true
+            enptyMessage.isHidden = false
+        } else {
+            likelistTableView.isHidden = false
+            enptyMessage.isHidden = true
         }
     }
 }

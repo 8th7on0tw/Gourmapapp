@@ -58,7 +58,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             likelistViewModel.getLikeStatus(shop_id: data.shop_id) {
                 if $0 == false {
                     likeFlag = false
-                    likeLabel.backgroundColor = UIColor.white
+                    likeLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
                     likeLabel.setTitleColor(UIColor.blue, for: .normal)
                 } else {
                     likeFlag = true
@@ -69,7 +69,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             wishlistViewModel.getWishStatus(shop_id: data.shop_id) {
                 if $0 == false {
                     wishFlag = false
-                    wishLabel.backgroundColor = UIColor.white
+                    wishLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
                     wishLabel.setTitleColor(UIColor.blue, for: .normal)
                 } else {
                     wishFlag = true
@@ -88,7 +88,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             likeFlag = true
         } else {
             likelistViewModel.deleteLikeShop(data: shop_data)
-            likeLabel.backgroundColor = UIColor.white
+            likeLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
             likeLabel.setTitleColor(UIColor.blue, for: .normal)
             likeFlag = false
         }
@@ -102,7 +102,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             wishFlag = true
         } else {
             wishlistViewModel.deleteWishShop(data: shop_data)
-            wishLabel.backgroundColor = UIColor.white
+            wishLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
             wishLabel.setTitleColor(UIColor.blue, for: .normal)
             wishFlag = false
         }
