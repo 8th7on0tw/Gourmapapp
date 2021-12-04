@@ -107,4 +107,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             wishFlag = false
         }
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
